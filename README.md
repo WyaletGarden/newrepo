@@ -1,9 +1,9 @@
 <h1 align="center">Project: Hệ thống Quản Lý Bán Hàng</h1>
 
 ## 👤 Thông Tin Cá Nhân  
-- **Họ tên**: [NGuyễn Đức Hùng] 
-- **Mã sinh viên**: [22010204]
-- **Lớp**: [CNTT-VJ1]
+- **Họ tên**: Nguyễn Đức Hùng
+- **Mã sinh viên**: 22010204
+- **Lớp**: CNTT-VJ1
 - **Môn học**: Xây dựng web nâng cao (TH3)
 
 ## 📈 Mục đích dự án
@@ -757,31 +757,30 @@ $validator = Validator::make($request->all(), [
 <h1> 🔗 Link </h1>
 
 ## Github Repository
-[Link GitHub Repository](https://github.com/your-username/QuanLyBanHang)
+[Link GitHub Repository](https://github.com/WyaletGarden/newrepo)
 
 ## Demo Video
 [Link Demo Video](https://drive.google.com/drive/folders/1Ci2O0RuxRzUemyzszu6oHDMrd1SlgH3l?usp=sharing)
 
-## Live Demo
-[Link Live Demo](https://your-domain.com)
-
-<h1> 📷 Một số hình ảnh chức năng chính</h1>
-
-### Dashboard chính
-![Dashboard](https://via.placeholder.com/800x400?text=Dashboard+Chính)
-
-### Quản lý sản phẩm
-![Product Management](https://via.placeholder.com/800x400?text=Quản+Lý+Sản+Phẩm)
-
-### Quản lý đơn hàng
-![Order Management](https://via.placeholder.com/800x400?text=Quản+Lý+Đơn+Hàng)
-
-### Báo cáo thống kê
-![Reports](https://via.placeholder.com/800x400?text=Báo+Cáo+Thống+Kê)
-
-### Hệ thống xác thực
-![Authentication](https://via.placeholder.com/800x400?text=Hệ+Thống+Xác+Thực)
 
 <h1>License & Copy Rights</h1>
 
 The Laravel framework is open-sourced software licensed under the <a href="https://opensource.org/licenses/MIT" rel="nofollow">MIT license.</a>
+
+---
+
+## 📝 Changelog
+
+### Version 1.0.0 (Latest Update)
+- ✅ Hoàn thành hệ thống quản lý bán hàng cơ bản
+- ✅ Tích hợp Laravel Breeze cho authentication
+- ✅ Implement CRUD operations cho tất cả entities
+- ✅ Bảo mật với CSRF, XSS protection
+- ✅ Responsive UI với Tailwind CSS
+- ✅ Database migrations và seeders
+- ✅ Báo cáo và thống kê dashboard
+
+### Cập nhật gần đây
+- 🔄 Cập nhật README với thông tin chi tiết
+- 🔄 Thêm hướng dẫn cài đặt và sử dụng
+- 🔄 Cải thiện documentation
