@@ -1,0 +1,28 @@
+# Cursor ignore file
+# Các file và thư mục sẽ bị ignore bởi Cursor
+
+# Node modules
+node_modules/
+
+# Vendor (Composer dependencies)
+vendor/
+
+# Build files
+public/build/
+
+# Storage logs
+storage/logs/
+
+# Cache files
+bootstrap/cache/
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Không ignore file .env
+!.env 
