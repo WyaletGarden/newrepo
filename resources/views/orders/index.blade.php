@@ -73,7 +73,7 @@
                                 class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                         </div>
                         <div class="flex items-end">
-                            <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">
+                            <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-black px-4 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">
                                 Tìm kiếm
                             </button>
                         </div>
@@ -101,7 +101,7 @@
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <a href="{{ route('orders.show', $order) }}" class="text-indigo-600 hover:text-indigo-900 font-medium">
-                                                    #{{ $order->order_number }}
+                                                    #{{ $order->order_code }}
                                                 </a>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">

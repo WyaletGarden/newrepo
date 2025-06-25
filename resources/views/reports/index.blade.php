@@ -208,7 +208,7 @@
                                             </div>
                                         </div>
                                         <div class="ml-4">
-                                            <p class="text-sm font-medium text-gray-900">Đơn hàng #{{ $order->order_number }}</p>
+                                            <p class="text-sm font-medium text-gray-900">Đơn hàng #{{ $order->order_code }}</p>
                                             <p class="text-sm text-gray-500">{{ $order->customer->name ?? 'N/A' }} - {{ number_format($order->total_amount) }} VNĐ</p>
                                         </div>
                                     </div>

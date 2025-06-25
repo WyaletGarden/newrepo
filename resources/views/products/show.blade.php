@@ -83,7 +83,7 @@
                             
                             @if($product->image)
                                 <div class="border rounded-lg p-4">
-                                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-full h-64 object-cover rounded">
+                                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-full h-64 object-cover rounded-lg border border-gray-200 shadow-sm">
                                 </div>
                             @else
                                 <div class="border rounded-lg p-8 text-center">
@@ -119,7 +119,7 @@
                                             <tr>
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <a href="{{ route('orders.show', $item->order) }}" class="text-indigo-600 hover:text-indigo-900">
-                                                        #{{ $item->order->order_number }}
+                                                        #{{ $item->order->order_code }}
                                                     </a>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">

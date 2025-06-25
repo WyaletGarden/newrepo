@@ -162,7 +162,7 @@
                                             <tr>
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <a href="{{ route('orders.show', $order) }}" class="text-indigo-600 hover:text-indigo-900 font-medium">
-                                                        #{{ $order->order_number }}
+                                                        #{{ $order->order_code }}
                                                     </a>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">

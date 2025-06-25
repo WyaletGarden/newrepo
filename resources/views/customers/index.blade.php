@@ -73,7 +73,7 @@
                         </div>
                         
                         <div class="flex items-end">
-                            <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">
+                            <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-black px-4 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">
                                 Tìm kiếm
                             </button>
                         </div>

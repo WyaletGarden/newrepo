@@ -29,6 +29,15 @@
                             </div>
 
                             <div>
+                                <label for="product_code" class="block text-sm font-medium text-gray-700">Mã sản phẩm <span class="text-red-500">*</span></label>
+                                <input type="text" name="product_code" id="product_code" value="{{ old('product_code', $product->product_code) }}" required
+                                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm @error('product_code') border-red-500 @enderror">
+                                @error('product_code')
+                                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div>
                                 <label for="category_id" class="block text-sm font-medium text-gray-700">Danh mục <span class="text-red-500">*</span></label>
                                 <select name="category_id" id="category_id" required
                                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm @error('category_id') border-red-500 @enderror">
@@ -88,7 +97,7 @@
                             
                             @if($product->image)
                                 <div class="mt-2 mb-4">
-                                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-32 h-32 object-cover rounded">
+                                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-lg border border-gray-200 shadow-sm mx-auto">
                                     <p class="text-sm text-gray-500 mt-1">Hình ảnh hiện tại</p>
                                 </div>
                             @endif
@@ -103,6 +112,7 @@
 
                         <div class="mt-6">
                             <div class="flex items-center">
+                                <input type="hidden" name="is_active" value="0">
                                 <input type="checkbox" name="is_active" id="is_active" value="1" {{ old('is_active', $product->is_active) ? 'checked' : '' }}
                                     class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
                                 <label for="is_active" class="ml-2 block text-sm text-gray-900">
@@ -115,7 +125,7 @@
                             <a href="{{ route('products.index') }}" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">
                                 Hủy
                             </a>
-                            <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">
+                            <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-black px-4 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">
                                 Cập nhật sản phẩm
                             </button>
                         </div>

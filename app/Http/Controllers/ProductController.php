@@ -47,7 +47,36 @@ class ProductController extends Controller
             $query->priceRange($request->min_price, $request->max_price);
         }
 
-        $products = $query->orderBy('created_at', 'desc')->paginate(10);
+        // Sắp xếp
+        if ($request->filled('sort')) {
+            switch ($request->sort) {
+                case 'price_asc':
+                    $query->orderBy('price', 'asc');
+                    break;
+                case 'price_desc':
+                    $query->orderBy('price', 'desc');
+                    break;
+                case 'name_asc':
+                    $query->orderBy('name', 'asc');
+                    break;
+                case 'name_desc':
+                    $query->orderBy('name', 'desc');
+                    break;
+                case 'created_desc':
+                    $query->orderBy('created_at', 'desc');
+                    break;
+                case 'created_asc':
+                    $query->orderBy('created_at', 'asc');
+                    break;
+                default:
+                    $query->orderBy('created_at', 'desc');
+                    break;
+            }
+        } else {
+            $query->orderBy('created_at', 'desc');
+        }
+
+        $products = $query->paginate(10);
         $categories = Category::active()->get();
 
         return view('products.index', compact('products', 'categories'));
@@ -75,7 +104,8 @@ class ProductController extends Controller
             'price' => 'required|numeric|min:0',
             'stock_quantity' => 'required|integer|min:0',
             'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
-            'status' => 'required|in:active,inactive'
+            'is_active' => 'boolean',
+            'sku' => 'nullable|string|max:100'
         ]);
 
         if ($validator->fails()) {
@@ -89,6 +119,16 @@ class ProductController extends Controller
         // Tự động sinh mã sản phẩm nếu không nhập
         if (empty($data['product_code'])) {
             $data['product_code'] = 'SP' . date('Ymd') . Str::random(4);
+        }
+
+        // Tự động sinh mã SKU nếu không nhập
+        if (empty($data['sku'])) {
+            $data['sku'] = 'SKU' . date('Ymd') . Str::upper(Str::random(4));
+        }
+
+        // Đảm bảo trường is_active luôn có giá trị
+        if (!isset($data['is_active'])) {
+            $data['is_active'] = 0;
         }
 
         // Upload hình ảnh
@@ -134,13 +174,14 @@ class ProductController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
-            'product_code' => 'nullable|string|max:50|unique:products,product_code,' . $product->id,
+            'product_code' => 'required|string|max:50|unique:products,product_code,' . $product->id,
             'category_id' => 'required|exists:categories,id',
             'description' => 'nullable|string',
             'price' => 'required|numeric|min:0',
             'stock_quantity' => 'required|integer|min:0',
             'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
-            'status' => 'required|in:active,inactive'
+            'is_active' => 'boolean',
+            'sku' => 'nullable|string|max:100'
         ]);
 
         if ($validator->fails()) {
@@ -150,6 +191,11 @@ class ProductController extends Controller
         }
 
         $data = $request->all();
+
+        // Đảm bảo trường is_active luôn có giá trị
+        if (!isset($data['is_active'])) {
+            $data['is_active'] = 0;
+        }
 
         // Upload hình ảnh mới
         if ($request->hasFile('image')) {
